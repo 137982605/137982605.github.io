@@ -16,25 +16,31 @@
   <meta name="author" content="Token-DP">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Timeline Action 这是一款技能编辑器，集成动画，音效，粒子特性，触发器范围，信号时间的技能编辑器。 使用说明【1.简单演示】 https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1dJ4m1W77W&#x2F;?share_source&#x3D;copy_web&amp;vd_source&#x3D;4f2baf5d87ebb7e8ccb04efb244ccb86【2.界面功能】 https:&#x2F;&#x2F;">
+    <meta name="description" content="Playable动画系统动画系统结构  声明一个适配器类AnimAdapter去继承PlayableBehaviour，适配器本身没有功能，功能在适配器引用的AnimBehaviour的子类中实现。 这样可以使用我们自己的类去管理Playable节点  混合器节点Mixer  从当前状态向目标状态过渡 两个状态之间过渡需要一段时间 enterTime 调用方式 TransitionTo(int i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="技能编辑器">
-<meta property="og:url" content="https://137982605.github.io/2024/03/06/%E6%8A%80%E8%83%BD%E7%BC%96%E8%BE%91%E5%99%A8/index.html">
+<meta property="og:title" content="Playable动画系统">
+<meta property="og:url" content="https://137982605.github.io/2024/03/06/Playable%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Token-DP">
-<meta property="og:description" content="Timeline Action 这是一款技能编辑器，集成动画，音效，粒子特性，触发器范围，信号时间的技能编辑器。 使用说明【1.简单演示】 https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1dJ4m1W77W&#x2F;?share_source&#x3D;copy_web&amp;vd_source&#x3D;4f2baf5d87ebb7e8ccb04efb244ccb86【2.界面功能】 https:&#x2F;&#x2F;">
+<meta property="og:description" content="Playable动画系统动画系统结构  声明一个适配器类AnimAdapter去继承PlayableBehaviour，适配器本身没有功能，功能在适配器引用的AnimBehaviour的子类中实现。 这样可以使用我们自己的类去管理Playable节点  混合器节点Mixer  从当前状态向目标状态过渡 两个状态之间过渡需要一段时间 enterTime 调用方式 TransitionTo(int i">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/use_img.png">
-<meta property="article:published_time" content="2024-03-06T08:31:51.070Z">
-<meta property="article:modified_time" content="2024-03-06T13:13:44.226Z">
+<meta property="og:image" content="https://137982605.github.io/img%5CActionEditor%5CPlayable_struct.png">
+<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_transition.png">
+<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_2.png">
+<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_3.png">
+<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_4.png">
+<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_5.png">
+<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5CBlendTree2D">
+<meta property="article:published_time" content="2024-03-06T12:58:52.876Z">
+<meta property="article:modified_time" content="2024-03-06T14:04:24.838Z">
 <meta property="article:author" content="Token-DP">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="ActionEditor">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://137982605.github.io/img/ActionEditor/use_img.png">
+<meta name="twitter:image" content="https://137982605.github.io/img%5CActionEditor%5CPlayable_struct.png">
   
   
   
-  <title>技能编辑器 - Token-DP</title>
+  <title>Playable动画系统 - Token-DP</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="技能编辑器"></span>
+            <span id="subtitle" data-typed-text="Playable动画系统"></span>
           
         </div>
 
@@ -211,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-06 16:31" pubdate>
-          2024年3月6日 下午
+        <time datetime="2024-03-06 20:58" pubdate>
+          2024年3月6日 晚上
         </time>
       </span>
     
@@ -223,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          469 字
+          318 字
         
       </span>
     
@@ -234,7 +240,7 @@
         
         
         
-          4 分钟
+          3 分钟
         
       </span>
     
@@ -271,48 +277,44 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">技能编辑器</h1>
+            <h1 id="seo-header">Playable动画系统</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Timeline-Action"><a href="#Timeline-Action" class="headerlink" title="Timeline Action"></a>Timeline Action</h1><p><img src="/img/ActionEditor/use_img.png" srcset="/img/loading.gif" lazyload></p>
-<p>这是一款技能编辑器，集成动画，音效，粒子特性，触发器范围，信号时间的技能编辑器。</p>
-<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><p>【1.简单演示】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dJ4m1W77W/?share_source=copy_web&vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86">https://www.bilibili.com/video/BV1dJ4m1W77W/?share_source=copy_web&amp;vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86</a><br>【2.界面功能】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VZ42127bu/?share_source=copy_web&vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86">https://www.bilibili.com/video/BV1VZ42127bu/?share_source=copy_web&amp;vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86</a><br>【3.快速编辑】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hC411x7oB/?share_source=copy_web&vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86">https://www.bilibili.com/video/BV1hC411x7oB/?share_source=copy_web&amp;vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86</a><br>【4.录制功能】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xr421W7Aw/?share_source=copy_web&vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86">https://www.bilibili.com/video/BV1Xr421W7Aw/?share_source=copy_web&amp;vd_source=4f2baf5d87ebb7e8ccb04efb244ccb86</a></p>
-<h1 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h1><pre><code class="hljs">* 技能编辑
-* 关键数据录制
-* 运行数据脱机动画Transform节点，
-</code></pre>
-<h1 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h1><h1 id="使用表现"><a href="#使用表现" class="headerlink" title="使用表现"></a>使用表现</h1><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h1 id="版本计划"><a href="#版本计划" class="headerlink" title="版本计划"></a>版本计划</h1><ul>
-<li><input checked="" disabled="" type="checkbox"> 0.1.0 完成基础编辑器功能<ul>
-<li><input checked="" disabled="" type="checkbox"> 编辑时界面功能</li>
-<li><input checked="" disabled="" type="checkbox"> 轨道：视频， 音效,粒子，触发器，信号</li>
+                <h1 id="Playable动画系统"><a href="#Playable动画系统" class="headerlink" title="Playable动画系统"></a>Playable动画系统</h1><h2 id="动画系统结构"><a href="#动画系统结构" class="headerlink" title="动画系统结构"></a>动画系统结构</h2><p><img src="/img%5CActionEditor%5CPlayable_struct.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>声明一个适配器类AnimAdapter去继承PlayableBehaviour，适配器本身没有功能，功能在适配器引用的AnimBehaviour的子类中实现。</li>
+<li>这样可以使用我们自己的类去管理Playable节点</li>
 </ul>
+<h2 id="混合器节点"><a href="#混合器节点" class="headerlink" title="混合器节点"></a>混合器节点</h2><p>Mixer</p>
+<ul>
+<li>从当前状态向目标状态过渡</li>
+<li>两个状态之间过渡需要一段时间 enterTime</li>
+<li>调用方式 TransitionTo(int index)，传入状态</li>
+<li>基本原理：切换动画有一个过渡时间 enterTime,过渡时间内当前动画权重递减，目标动画权重递增，从而达到动画融合的效果。</li>
+</ul>
+<p><img src="/%5Cimg%5CActionEditor%5Cmixer_transition.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>最简单的情况，2个动画的融合过渡</p>
+<p><img src="/%5Cimg%5CActionEditor%5Cmixer_2.png" srcset="/img/loading.gif" lazyload></p>
 </li>
-<li><input checked="" disabled="" type="checkbox"> 0.2.0 完整可使用的编辑器和运行时功能、<ul>
-<li><input checked="" disabled="" type="checkbox"> 界面美化，操作优化</li>
-<li><input checked="" disabled="" type="checkbox"> 跟随节点录制功能，保存录制数据</li>
-<li><input checked="" disabled="" type="checkbox"> 通用的运行时代码</li>
 </ul>
-</li>
-<li><input disabled="" type="checkbox"> 0.3.0 调整代码和数据结构，优化使用，和性能<ul>
-<li><input checked="" disabled="" type="checkbox"> 调整数据结构，和Undo功能</li>
-<li><input disabled="" type="checkbox"> 优化运行时代码，便于使用，运行时代码生成工具（生成一些固定通用的运行代码）</li>
-<li><input disabled="" type="checkbox"> 调整代码结构</li>
-<li><input disabled="" type="checkbox"> 优化性能</li>
+<h3 id="两个动画正在切换过程中，又要切换到第三个动画"><a href="#两个动画正在切换过程中，又要切换到第三个动画" class="headerlink" title="两个动画正在切换过程中，又要切换到第三个动画"></a>两个动画正在切换过程中，又要切换到第三个动画</h3><ul>
+<li>当前权重大于目标权重</li>
+<li>让原来的目标权重递减到0<br><img src="/%5Cimg%5CActionEditor%5Cmixer_3.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
-</li>
-<li><input disabled="" type="checkbox"> 0.4.0 完善编辑器的扩展，方便自定义事件和轨道</li>
-<li><input disabled="" type="checkbox"> 0.5.0 完善演示demo，逐个功能写演示和使用demo，变相检查功能和使用感受</li>
-<li><input disabled="" type="checkbox"> 0.6.0 周边扩展功能，和eframework.module 下的其他功能联动<ul>
-<li><input disabled="" type="checkbox"> 拖动编辑好多ActionData数据可以直接拖动到hsfm 和 behaviortree中生成对应的控制节点</li>
-<li><input disabled="" type="checkbox"> 使用hsfm或behaviortree来控制所以技能的流程（这样保证技能编辑器的纯粹性）</li>
+<h3 id="频繁打断，就有多个之前的目标权重"><a href="#频繁打断，就有多个之前的目标权重" class="headerlink" title="频繁打断，就有多个之前的目标权重"></a>频繁打断，就有多个之前的目标权重</h3><ul>
+<li>让之前的多个目标权重逐步递减到0</li>
 </ul>
-</li>
-<li><input disabled="" type="checkbox"> 0.7.0 开发json数据导出，和c++库版本的运行时代码库（用于双端跑逻辑）</li>
-<li><input disabled="" type="checkbox"> 0.8.0 再次优化代码和数据结构，优化使用</li>
-<li><input disabled="" type="checkbox"> 1.0.0 完结撒花。</li>
+<p><img src="/%5Cimg%5CActionEditor%5Cmixer_4.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="切换被打断时，当前权重比目标权重要小"><a href="#切换被打断时，当前权重比目标权重要小" class="headerlink" title="切换被打断时，当前权重比目标权重要小"></a>切换被打断时，当前权重比目标权重要小</h3><ul>
+<li>交换一下，让权重较大的成为，当前状态</li>
+<li>权重较小的成为，递减状态。这样变换就动画不会太突兀</li>
 </ul>
+<p><img src="/%5Cimg%5CActionEditor%5Cmixer_5.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="BlendTree2D原理"><a href="#BlendTree2D原理" class="headerlink" title="BlendTree2D原理"></a>BlendTree2D原理</h2><p>原理：根据二维坐标的距离，调整动画权重</p>
+<p><img src="/%5Cimg%5CActionEditor%5CBlendTree2D'.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -360,8 +362,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>技能编辑器</div>
-      <div>https://137982605.github.io/2024/03/06/技能编辑器/</div>
+      <div>Playable动画系统</div>
+      <div>https://137982605.github.io/2024/03/06/Playable动画系统/</div>
     </div>
     <div class="license-meta">
       
@@ -405,15 +407,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/06/Playable%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F/" title="Playable动画系统">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Playable动画系统</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/03/06/%E6%8A%80%E8%83%BD%E7%BC%96%E8%BE%91%E5%99%A8/" title="技能编辑器">
+                        <span class="hidden-mobile">技能编辑器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
