@@ -23,20 +23,20 @@
 <meta property="og:site_name" content="Token-DP">
 <meta property="og:description" content="Playable动画系统动画系统结构  声明一个适配器类AnimAdapter去继承PlayableBehaviour，适配器本身没有功能，功能在适配器引用的AnimBehaviour的子类中实现。 这样可以使用我们自己的类去管理Playable节点  混合器节点Mixer  从当前状态向目标状态过渡 两个状态之间过渡需要一段时间 enterTime 调用方式 TransitionTo(int i">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://137982605.github.io/img%5CActionEditor%5CPlayable_struct.png">
-<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_transition.png">
-<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_2.png">
-<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_3.png">
-<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_4.png">
-<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5Cmixer_5.png">
-<meta property="og:image" content="https://137982605.github.io/%5Cimg%5CActionEditor%5CBlendTree2D">
+<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/Playable_struct.png">
+<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/mixer_transition.png">
+<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/mixer_2.png">
+<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/mixer_3.png">
+<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/mixer_4.png">
+<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/mixer_5.png">
+<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/BlendTree2D">
 <meta property="article:published_time" content="2024-03-06T12:58:52.876Z">
-<meta property="article:modified_time" content="2024-03-06T14:04:24.838Z">
+<meta property="article:modified_time" content="2024-03-06T14:16:26.953Z">
 <meta property="article:author" content="Token-DP">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="ActionEditor">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://137982605.github.io/img%5CActionEditor%5CPlayable_struct.png">
+<meta name="twitter:image" content="https://137982605.github.io/img/ActionEditor/Playable_struct.png">
   
   
   
@@ -282,7 +282,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Playable动画系统"><a href="#Playable动画系统" class="headerlink" title="Playable动画系统"></a>Playable动画系统</h1><h2 id="动画系统结构"><a href="#动画系统结构" class="headerlink" title="动画系统结构"></a>动画系统结构</h2><p><img src="/img%5CActionEditor%5CPlayable_struct.png" srcset="/img/loading.gif" lazyload></p>
+                <h1 id="Playable动画系统"><a href="#Playable动画系统" class="headerlink" title="Playable动画系统"></a>Playable动画系统</h1><h2 id="动画系统结构"><a href="#动画系统结构" class="headerlink" title="动画系统结构"></a>动画系统结构</h2><p><img src="/img/ActionEditor/Playable_struct.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>声明一个适配器类AnimAdapter去继承PlayableBehaviour，适配器本身没有功能，功能在适配器引用的AnimBehaviour的子类中实现。</li>
 <li>这样可以使用我们自己的类去管理Playable节点</li>
@@ -294,27 +294,27 @@
 <li>调用方式 TransitionTo(int index)，传入状态</li>
 <li>基本原理：切换动画有一个过渡时间 enterTime,过渡时间内当前动画权重递减，目标动画权重递增，从而达到动画融合的效果。</li>
 </ul>
-<p><img src="/%5Cimg%5CActionEditor%5Cmixer_transition.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/ActionEditor/mixer_transition.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li><p>最简单的情况，2个动画的融合过渡</p>
-<p><img src="/%5Cimg%5CActionEditor%5Cmixer_2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/ActionEditor/mixer_2.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 </ul>
 <h3 id="两个动画正在切换过程中，又要切换到第三个动画"><a href="#两个动画正在切换过程中，又要切换到第三个动画" class="headerlink" title="两个动画正在切换过程中，又要切换到第三个动画"></a>两个动画正在切换过程中，又要切换到第三个动画</h3><ul>
 <li>当前权重大于目标权重</li>
-<li>让原来的目标权重递减到0<br><img src="/%5Cimg%5CActionEditor%5Cmixer_3.png" srcset="/img/loading.gif" lazyload></li>
+<li>让原来的目标权重递减到0<br><img src="/img/ActionEditor/mixer_3.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <h3 id="频繁打断，就有多个之前的目标权重"><a href="#频繁打断，就有多个之前的目标权重" class="headerlink" title="频繁打断，就有多个之前的目标权重"></a>频繁打断，就有多个之前的目标权重</h3><ul>
 <li>让之前的多个目标权重逐步递减到0</li>
 </ul>
-<p><img src="/%5Cimg%5CActionEditor%5Cmixer_4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/ActionEditor/mixer_4.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="切换被打断时，当前权重比目标权重要小"><a href="#切换被打断时，当前权重比目标权重要小" class="headerlink" title="切换被打断时，当前权重比目标权重要小"></a>切换被打断时，当前权重比目标权重要小</h3><ul>
 <li>交换一下，让权重较大的成为，当前状态</li>
 <li>权重较小的成为，递减状态。这样变换就动画不会太突兀</li>
 </ul>
-<p><img src="/%5Cimg%5CActionEditor%5Cmixer_5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/ActionEditor/mixer_5.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="BlendTree2D原理"><a href="#BlendTree2D原理" class="headerlink" title="BlendTree2D原理"></a>BlendTree2D原理</h2><p>原理：根据二维坐标的距离，调整动画权重</p>
-<p><img src="/%5Cimg%5CActionEditor%5CBlendTree2D'.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/ActionEditor/BlendTree2D'.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
