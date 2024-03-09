@@ -16,25 +16,22 @@
   <meta name="author" content="Token-DP">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Playable动画Layer融合目标效果：攻击时移动，上半身进行攻击动画，下半身播放移动动画。达到边攻击边移动的效果。 核心原理：  通过 AnimationLayerMixerPlayable 类 ，进行动画分层。0层BaseLayer，1层ActionLayer。  创建AvatarMask并设置好参数，调用ActionLayer的SetLayerMaskFromAvatarMask函数，设">
+    <meta name="description" content="Plan2024.3 技能编辑器  完整的动画系统  接入Animancer动画系统，和默认的Animator  轨道的自定义扩展   ARPG 工作流程  优化hsfm状态机是使用  使用hsfm和技能编辑器，完成角色（移动，跳跃，翻滚，攻击，连击，技能）的demo，并优化开发流">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Playable动画融合">
-<meta property="og:url" content="https://137982605.github.io/2024/03/09/Playable%E5%8A%A8%E7%94%BB%E8%9E%8D%E5%90%88/index.html">
+<meta property="og:title" content="计划">
+<meta property="og:url" content="https://137982605.github.io/2024/03/09/Plan/Plan/index.html">
 <meta property="og:site_name" content="Token-DP">
-<meta property="og:description" content="Playable动画Layer融合目标效果：攻击时移动，上半身进行攻击动画，下半身播放移动动画。达到边攻击边移动的效果。 核心原理：  通过 AnimationLayerMixerPlayable 类 ，进行动画分层。0层BaseLayer，1层ActionLayer。  创建AvatarMask并设置好参数，调用ActionLayer的SetLayerMaskFromAvatarMask函数，设">
+<meta property="og:description" content="Plan2024.3 技能编辑器  完整的动画系统  接入Animancer动画系统，和默认的Animator  轨道的自定义扩展   ARPG 工作流程  优化hsfm状态机是使用  使用hsfm和技能编辑器，完成角色（移动，跳跃，翻滚，攻击，连击，技能）的demo，并优化开发流">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://137982605.github.io/img/ActionEditor/LayerMixerGraph.png">
-<meta property="article:published_time" content="2024-03-09T01:49:43.840Z">
-<meta property="article:modified_time" content="2024-03-09T02:12:36.885Z">
+<meta property="article:published_time" content="2024-03-09T02:38:54.599Z">
+<meta property="article:modified_time" content="2024-03-09T03:03:19.667Z">
 <meta property="article:author" content="Token-DP">
-<meta property="article:tag" content="Unity">
-<meta property="article:tag" content="ActionEditor">
+<meta property="article:tag" content="Plan">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://137982605.github.io/img/ActionEditor/LayerMixerGraph.png">
   
   
   
-  <title>Playable动画融合 - Token-DP</title>
+  <title>计划 - Token-DP</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Playable动画融合"></span>
+            <span id="subtitle" data-typed-text="计划"></span>
           
         </div>
 
@@ -211,7 +208,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-09 09:49" pubdate>
+        <time datetime="2024-03-09 10:38" pubdate>
           2024年3月9日 上午
         </time>
       </span>
@@ -223,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          284 字
+          77 字
         
       </span>
     
@@ -234,7 +231,7 @@
         
         
         
-          3 分钟
+          1 分钟
         
       </span>
     
@@ -271,25 +268,24 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Playable动画融合</h1>
+            <h1 id="seo-header">计划</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Playable动画Layer融合"><a href="#Playable动画Layer融合" class="headerlink" title="Playable动画Layer融合"></a>Playable动画Layer融合</h1><p>目标效果：攻击时移动，上半身进行攻击动画，下半身播放移动动画。达到边攻击边移动的效果。</p>
-<p>核心原理：</p>
-<ul>
-<li><p>通过 AnimationLayerMixerPlayable 类 ，进行动画分层。0层BaseLayer，1层ActionLayer。</p>
+                <h1 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h1><h2 id="2024-3"><a href="#2024-3" class="headerlink" title="2024.3"></a>2024.3</h2><ul>
+<li>技能编辑器<ul>
+<li><input disabled="" type="checkbox"> 完整的动画系统</li>
+<li><input disabled="" type="checkbox"> 接入Animancer动画系统，和默认的Animator</li>
+<li><input disabled="" type="checkbox"> 轨道的自定义扩展</li>
+</ul>
 </li>
-<li><p>创建AvatarMask并设置好参数，调用ActionLayer的SetLayerMaskFromAvatarMask函数，设置AvatarMask。</p>
-<ul>
-<li>移动不攻击：动画在BaseLayer播放，没有攻击时，将ActionLayer的目标权重TargetWeight设置为0</li>
-<li>攻击不移动：将ActionLayer的目标权重TargetWeight设置为1，在ActionLayer层播放攻击动画，并在BaseLayer层也同样播放攻击动画，并设置动画时间和ActionLayer的动画时间一致。完成后将将ActionLayer的目标权重TargetWeight设置为0。并重新设置BaseLayer的播放动画（待机动画）</li>
-<li>移动攻击：将ActionLayer的目标权重TargetWeight设置为1，在ActionLayer层播放攻击动画，在BaseLayer层播放移动动画，当停止移动后，如果攻击未结束，获取ActionLayer的动画在BaseLayer层播放，并保证和ActionLayer的动画时间一致。攻击结束后将ActionLayer的目标权重TargetWeight设置为0。并重新设置BaseLayer的播放动画（待机动画）</li>
+<li>ARPG 工作流程<ul>
+<li><input disabled="" type="checkbox"> 优化hsfm状态机是使用</li>
+<li><input disabled="" type="checkbox"> 使用hsfm和技能编辑器，完成角色（移动，跳跃，翻滚，攻击，连击，技能）的demo，并优化开发流</li>
 </ul>
 </li>
 </ul>
-<p><img src="/img/ActionEditor/LayerMixerGraph.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -308,7 +304,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/ARGP/" class="category-chain-item">ARGP</a>
+  <a href="/categories/Plan/" class="category-chain-item">Plan</a>
   
   
 
@@ -323,9 +319,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Unity/" class="print-no-link">#Unity</a>
-      
-        <a href="/tags/ActionEditor/" class="print-no-link">#ActionEditor</a>
+        <a href="/tags/Plan/" class="print-no-link">#Plan</a>
       
     </div>
   
@@ -337,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Playable动画融合</div>
-      <div>https://137982605.github.io/2024/03/09/Playable动画融合/</div>
+      <div>计划</div>
+      <div>https://137982605.github.io/2024/03/09/Plan/Plan/</div>
     </div>
     <div class="license-meta">
       
@@ -386,8 +380,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/06/Playable%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F/" title="Playable动画系统">
-                        <span class="hidden-mobile">Playable动画系统</span>
+                      <a href="/2024/03/09/Plan/Schedule/" title="日程">
+                        <span class="hidden-mobile">日程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
