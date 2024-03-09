@@ -4,11 +4,38 @@
   
   
   <entry>
+    <title>hsfm可视化分层状态机</title>
+    <link href="/2024/03/09/ARPG/hsfm%E5%8F%AF%E8%A7%86%E5%8C%96%E7%8A%B6%E6%80%81%E6%9C%BA/"/>
+    <url>/2024/03/09/ARPG/hsfm%E5%8F%AF%E8%A7%86%E5%8C%96%E7%8A%B6%E6%80%81%E6%9C%BA/</url>
+    
+    <content type="html"><![CDATA[<h1 id="HSFM可视化分层状态机"><a href="#HSFM可视化分层状态机" class="headerlink" title="HSFM可视化分层状态机"></a>HSFM可视化分层状态机</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>ARGP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Unity</tag>
+      
+      <tag>状态机</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>计划</title>
     <link href="/2024/03/09/Plan/Plan/"/>
     <url>/2024/03/09/Plan/Plan/</url>
     
-    <content type="html"><![CDATA[<h1 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h1><h2 id="2024-3"><a href="#2024-3" class="headerlink" title="2024.3"></a>2024.3</h2><ul><li>技能编辑器<ul><li><input disabled="" type="checkbox"> 完整的动画系统</li><li><input disabled="" type="checkbox"> 接入Animancer动画系统，和默认的Animator</li><li><input disabled="" type="checkbox"> 轨道的自定义扩展</li></ul></li><li>ARPG 工作流程<ul><li><input disabled="" type="checkbox"> 优化hsfm状态机是使用</li><li><input disabled="" type="checkbox"> 使用hsfm和技能编辑器，完成角色（移动，跳跃，翻滚，攻击，连击，技能）的demo，并优化开发流</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h1><h2 id="2024-3"><a href="#2024-3" class="headerlink" title="2024.3"></a>2024.3</h2><ul><li>技能编辑器<ul><li><input disabled="" type="checkbox"> 完整的动画系统</li><li><input disabled="" type="checkbox"> 接入Animancer动画系统，和默认的Animator</li><li><input disabled="" type="checkbox"> 轨道的自定义扩展</li></ul></li><li>ARPG 工作流程<ul><li><input disabled="" type="checkbox"> 优化hsfm状态机是使用<ul><li><input disabled="" type="checkbox"> 不可中断功能(有些状态，必须播完后自动跳转，不可中途中断，例如：硬值状态)</li></ul></li><li><input disabled="" type="checkbox"> 使用hsfm和技能编辑器，完成角色（移动，跳跃，翻滚，攻击，连击，技能）的demo，并优化开发流</li></ul></li></ul>]]></content>
     
     
     <categories>
@@ -33,7 +60,7 @@
     <link href="/2024/03/09/Plan/Schedule/"/>
     <url>/2024/03/09/Plan/Schedule/</url>
     
-    <content type="html"><![CDATA[<h1 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a>Schedule</h1><h2 id="ARPG-工作流"><a href="#ARPG-工作流" class="headerlink" title="ARPG 工作流"></a>ARPG 工作流</h2><ul><li>2024.3.9 技能编辑器接入Animancer动画系统，完成一个移动，跳跃，攻击，连击的完整工作流程。</li><li>2024.3.8 接入Animancer，并学习实例了解其功能，并测试一个复杂功能实现：移动使用BlendTree2d混合，在移动的基础上使用LayerMix进行攻击，达到边攻击边移动的效果.</li><li>2024.3.7 完成简易的Playable动画系统支持BlendTree2d动画混合</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a>Schedule</h1><h2 id="ARPG-工作流"><a href="#ARPG-工作流" class="headerlink" title="ARPG 工作流"></a>ARPG 工作流</h2><ul><li>2024.3.9 <ul><li>技能编辑器接入Animancer动画系统，完成一个移动，跳跃，攻击，连击的完整工作流程。</li><li>调整hsfm状态机，修改重名的规则</li></ul></li><li>2024.3.8<ul><li>接入Animancer，并学习实例了解其功能，并测试一个复杂功能实现：移动使用BlendTree2d混合，在移动的基础上使用LayerMix进行攻击，达到边攻击边移动的效果.</li></ul></li><li><ul><li>2024.3.7 完成简易的Playable动画系统支持BlendTree2d动画混合</li></ul></li></ul>]]></content>
     
     
     <categories>
